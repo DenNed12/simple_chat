@@ -1,5 +1,5 @@
 from django import forms
-from models import User, Chat, Message
+from chat.models import *
 
 class ProfileForm(forms.ModelForm):
     class Meta:
@@ -10,7 +10,7 @@ class ProfileForm(forms.ModelForm):
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields  = ['content']
+        fields = ['content']
 
 
 class ChatForm(forms.ModelForm):
