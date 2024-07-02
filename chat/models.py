@@ -5,6 +5,9 @@ class User(AbstractBaseUser):
     username  = models.CharField(max_length=20,default ='user')
     photo = models.ImageField(upload_to='images/', default='photo')
 
+    def __str__(self):
+        return self.username
+
 
 class Message(models.Model):
     author = models.ForeignKey(
@@ -19,11 +22,15 @@ class Message(models.Model):
     )
     content = models.CharField(max_length=300)
 
+    def __str__(self):
+        return self.content
+
 
 class Chat(models.Model):
    name = models.CharField(max_length=30, default='name')
    description = models.CharField(max_length=100,default= 'description')
    members = models.ManyToManyField(User)
 
-
+   def __str__(self):
+       return self.name
 
